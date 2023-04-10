@@ -24,9 +24,17 @@ class Rectangle implements Resizeable {
     setHeight(value: number): void {
         this._height = value;
     }
+    getArea(): number{
+        return this._height * this._width
+    }
+    getAreaAfter(percent:number):number{
+        this.resize(percent)
+        return this._height * this._width
+    }
 
-    resize(): string {
-        return `${this._width * Math.random() * 10} and ${this._height * Math.random() * 10}`
+    resize(percent:number): void {
+        this._width += this._width * percent/100
+        this._height += this._height * percent/100
     }
 }
 
@@ -35,6 +43,6 @@ let rect1: Rectangle = new Rectangle(8, 2)
 let rect2: Rectangle = new Rectangle(10, 5)
 let rArr: Rectangle[] = [rect, rect1, rect2]
 rArr.forEach((i) => {
-    console.log(i)
-    console.log(i.resize())
+    console.log('Before: ' + i.getArea())
+    console.log('After: ' + i.getAreaAfter(50))
 })

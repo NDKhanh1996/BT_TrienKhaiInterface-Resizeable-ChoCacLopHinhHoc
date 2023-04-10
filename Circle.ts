@@ -10,13 +10,20 @@ class Circle implements Resizeable {
     getRadius(): number {
         return this._radius;
     }
+    getArea(): number{
+        return this._radius * this._radius * Math.PI
+    }
+    getAreaAfter(percent:number):number{
+        this.resize(percent)
+        return this._radius * this._radius * Math.PI
+    }
 
     setRadius(value: number): void {
         this._radius = value;
     }
 
-    resize(): number {
-        return this._radius * Math.random() * 10
+    resize(percent:number): void {
+        this._radius += this._radius * percent/100
     }
 }
 
@@ -27,6 +34,6 @@ let circle2: Circle = new Circle(8)
 let cArr: Circle[] = [circle, circle1, circle2]
 
 cArr.forEach((i) => {
-    console.log(i)
-    console.log(i.resize())
+    console.log('Before: ' + i.getArea())
+    console.log('After: ' + i.getAreaAfter(50))
 })
