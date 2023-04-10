@@ -1,6 +1,6 @@
 import {Resizeable} from "./Resizeable";
 
-class Rectangle implements Resizeable{
+class Rectangle implements Resizeable {
     private _width: number;
     private _height: number;
 
@@ -24,9 +24,17 @@ class Rectangle implements Resizeable{
     setHeight(value: number): void {
         this._height = value;
     }
-    resize(percent: number): string {
-        return `${this._width *= percent} and ${this._height *= percent}`
+
+    resize(): string {
+        return `${this._width * Math.random() * 10} and ${this._height * Math.random() * 10}`
     }
 }
-let rect = new Rectangle(10, 5)
-console.log(rect.resize(0.5))
+
+let rect: Rectangle = new Rectangle(4, 7)
+let rect1: Rectangle = new Rectangle(8, 2)
+let rect2: Rectangle = new Rectangle(10, 5)
+let rArr: Rectangle[] = [rect, rect1, rect2]
+rArr.forEach((i) => {
+    console.log(i)
+    console.log(i.resize())
+})
