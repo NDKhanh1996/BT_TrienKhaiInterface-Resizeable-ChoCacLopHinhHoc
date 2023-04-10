@@ -1,6 +1,6 @@
 import {Resizeable} from "./Resizeable";
 
-class Rectangle implements Resizeable {
+export class Rectangle implements Resizeable {
     private _width: number;
     private _height: number;
 
@@ -38,11 +38,11 @@ class Rectangle implements Resizeable {
     }
 }
 
-let rect: Rectangle = new Rectangle(4, 7)
-let rect1: Rectangle = new Rectangle(8, 2)
-let rect2: Rectangle = new Rectangle(10, 5)
-let rArr: Rectangle[] = [rect, rect1, rect2]
-rArr.forEach((i) => {
-    console.log('Before: ' + i.getArea())
-    console.log('After: ' + i.getAreaAfter(50))
-})
+// let rect: Rectangle = new Rectangle(4, 7)
+// let rect1: Rectangle = new Rectangle(8, 2)
+// let rect2: Rectangle = new Rectangle(10, 5)
+// let rArr: Rectangle[] = [rect, rect1, rect2]
+// rArr.forEach((i) => {
+//     console.log('Before: ' + i.getArea())
+//     console.log('After: ' + i.getAreaAfter(50))
+// })
